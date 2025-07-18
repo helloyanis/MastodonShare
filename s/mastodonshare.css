@@ -136,7 +136,7 @@ body,html{
     background-color: Canvas;
 }
 .border-top{
-    border-top:none;
+    border-top:none !important;
 }
 a, a:hover{
     color: LinkText;
