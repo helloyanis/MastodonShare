@@ -1,0 +1,130 @@
+/* ---------- 1.  Colour tokens ---------- */
+
+:root{
+    /* Light theme (default) */
+    --bg-main:            #f1f1f5;
+    --bg-subtle:          #a6c0d940;
+    --text-main:          #124270;
+    --border-main:        #a6c0d9;
+    --border-own:         #2b90d9;
+    --border-trans:       rgba(0,0,0,0.175);
+    --brand:              #2b90d9;
+}
+
+/* Automatically switches when the OS is in dark‑mode,
+   OR when you add a `.dark` class to <html>. */
+@media (prefers-color-scheme: dark) {
+    :root{
+        --bg-main:        #1e1e20;
+        --bg-subtle:      #2a2a2e;
+        --text-main:      #d1e7ff;
+        --border-main:    #3a5069;
+        --border-own:     #329af0;
+        --border-trans:   rgba(255,255,255,0.175);
+        --brand:          #329af0;
+    }
+}
+
+/* ---------- 2.  Base layout ---------- */
+
+body,html{
+    height:100%;
+    width:100%;
+    background:var(--bg-main);
+    color:var(--text-main);
+    padding:0;
+    margin:0;
+}
+
+.fs-7{font-size:85%;}
+
+/* ---------- 3.  Components ---------- */
+
+#f{
+    position:absolute;
+    top:0;
+    width:100%;
+    z-index:9999;
+    background:var(--bg-main);
+    color:var(--text-main);
+    font-size:80%;
+    text-align:center;
+    padding:.5rem;
+}
+#f a{margin:0 .5rem;}
+
+.border-own{border-color:var(--border-own)!important;}
+.border-translucent{border-color:var(--border-trans)!important;}
+
+.btn-own{
+    background:var(--brand);
+    color:var(--bg-main);
+}
+.btn-own:focus,
+.btn-own:hover,
+.btn-own:active,
+.btn-own:target{
+    background:var(--brand-hover)!important;
+    color:var(--bg-main)!important;
+}
+
+#share,#create,#instance{
+    max-width:30em;
+    margin:0 auto;
+    padding-top:5rem;
+    padding-bottom:1rem;
+    display:flex;
+    align-content:space-around;
+    justify-content:center;
+    align-items:flex-start;
+    flex-wrap:nowrap;
+    flex-direction:column;
+    height:100%;
+}
+#instance,#share,#create{align-items:center;}
+#instance{
+    height:auto;
+    padding-bottom:5rem;
+    justify-content:start;
+}
+
+#share>div,
+#create>div,
+#instance>div{width:100%;}
+
+#landing>*,
+#create>*{margin-bottom:1rem;}
+
+#share img,
+#instance img,
+#create img{width:4em;}
+
+#nav{
+    max-width:50em;
+    margin:0 auto;
+    display:flex;
+    align-content:space-between;
+    justify-content:flex-start;
+    align-items:baseline;
+    flex-wrap:nowrap;
+    flex-direction:row;
+}
+#nav img{width:2.3em;}
+
+#results_header{
+    border-bottom:1px solid var(--border-main);
+    padding:1rem;
+    background:var(--bg-subtle);
+}
+
+#results{
+    max-width:52em;
+    margin:0 auto;
+}
+#results a{color:var(--text-main);}
+#results .card{border-color:var(--border-main)!important;}
+#results .card-footer{
+    border-top:1px solid var(--border-main);
+    background:var(--bg-subtle);
+}
+#results>.card{margin-top:1rem;}
