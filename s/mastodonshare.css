@@ -133,8 +133,14 @@ body,html{
     background-color: ButtonFace;
 }
 .card{
-    background-color: canvas;
+    background-color: Canvas;
 }
 .border-top{
     border-top:none;
+}
+a, a:hover{
+    color: LinkText;
+}
+a:visited{
+    color: VisitedText;
 }
