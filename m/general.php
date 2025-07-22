@@ -323,6 +323,7 @@ function lista($a,$between = ', ',$final = ' & ') {
 }
 
 function ordenar($array,$campo,$desc = true,$sinclave = false) {
+	
 	$t = array();
 	foreach($array as $key => $value) {
 		$t[$key] = $value[$campo];
@@ -351,14 +352,7 @@ function ordenar($array,$campo,$desc = true,$sinclave = false) {
 }
 
 function get_redirect_url($url){
-	// ini_set('user_agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.9) Gecko/20071025 Firefox/2.0.0.9');
-	// $h = get_headers($url,true);
-	//
-	// // p(htmlspecialchars(file_get_contents($url)));
-	// // pexit($h);
-	// // $redirect_url = null;
-
-
+	
 	$url_parts = @parse_url($url);
 	if (!$url_parts) return false;
 	if (!isset($url_parts['host'])) return false; //can't process relative URLs
