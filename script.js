@@ -4,8 +4,13 @@ window.addEventListener('pageshow', function (event) {
         // User navigated back to the page so they probably don't want to be auto redirected again.
     }
     else if (localStorage.getItem("skip-confirm")) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const textParam = urlParams.get('text');
+        const urlParam = urlParams.get('url');
         // Skip confirmation, redirect immediately
-        redirectToInstance();
+        if (textParam || urlParam) {
+            redirectToInstance();
+        }
     }
 });
 
@@ -18,22 +23,22 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 const registerServiceWorker = async () => {
-  if ("serviceWorker" in navigator) {
-    try {
-      const registration = await navigator.serviceWorker.register("/worker.js", {
-        scope: "/",
-      });
-      if (registration.installing) {
-        console.log("Service worker installing");
-      } else if (registration.waiting) {
-        console.log("Service worker installed");
-      } else if (registration.active) {
-        console.log("Service worker active");
-      }
-    } catch (error) {
-      console.error(`Registration failed with ${error}`);
+    if ("serviceWorker" in navigator) {
+        try {
+            const registration = await navigator.serviceWorker.register("/worker.js", {
+                scope: "/",
+            });
+            if (registration.installing) {
+                console.log("Service worker installing");
+            } else if (registration.waiting) {
+                console.log("Service worker installed");
+            } else if (registration.active) {
+                console.log("Service worker active");
+            }
+        } catch (error) {
+            console.error(`Registration failed with ${error}`);
+        }
     }
-  }
 };
 
 function init() {
@@ -108,6 +113,7 @@ function redirectToInstance() {
     } else if (localStorage.getItem("instance")) {
         document.getElementById("go-to-instance-button").setAttribute("loading", "true");
         redirectURL = `https://${localStorage.getItem("instance")}/share?text=${encodeURIComponent(textParam || "")}&url=${encodeURIComponent(urlParam || "")}`;
+
     }
     else {
         // No instance provided, do nothing
