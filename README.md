@@ -1,6 +1,6 @@
 # MastodonShare
 
-A simple PHP web application that provides a "share to Mastodon" endpoint. Users can enter their Mastodon instance and are redirected to that instance's sharing page with pre-filled text and URL.
+A simple web application that provides a "share to Mastodon" endpoint. Users can enter their Mastodon instance and are redirected to that instance's sharing page with pre-filled text and URL.
 
 This project powers [https://mastodonshare.com](https://mastodonshare.com)
 
@@ -27,35 +27,12 @@ This project powers [https://mastodonshare.com](https://mastodonshare.com)
    cd mastodonshare
    ```
 
-2. **Configure the application**:
-   - Copy `m/config.php` and modify it for your environment
-   - Update the following settings:
-     - `DOMAIN`: Your domain name
-     - `URL`: Your application's base URL
-     - Database settings (if applicable)
-
-3. **Set up your web server**:
-   - Point your web server's document root to the project directory
-   - Ensure PHP is properly configured
-   - Make sure the `m/` directory is accessible
+2. **Set up your web server**:
+   - Serve the index.html file
 
 4. **Test the installation**:
    - Visit your domain in a web browser
    - You should see the MastodonShare interface
-
-## 🔧 Configuration
-
-The main configuration file is located at `m/config.php`. Key configuration options:
-
-```php
-// Domain configuration
-define('DOMAIN', 'yourdomain.com');
-define('URL', 'https://yourdomain.com');
-
-// Cookie settings
-define('COOKIE_SECURE', true);
-define('COOKIE_HTTPONLY', true);
-```
 
 ## 📖 Usage
 
@@ -83,7 +60,7 @@ define('COOKIE_HTTPONLY', true);
 
 ```javascript
 // Share content to Mastodon
-const shareUrl = `https://yoursite.com/?text=${encodeURIComponent('Check this out!')}&url=${encodeURIComponent('https://example.com')}`;
+const shareUrl = `https://mastodonshare.com/?text=${encodeURIComponent('Check this out!')}&url=${encodeURIComponent('https://example.com')}`;
 window.open(shareUrl, '_blank');
 ```
 
@@ -109,10 +86,7 @@ mastodonshare/
 
 ## 🔒 Security Considerations
 
-- Input validation and sanitization
-- Secure cookie handling
-- XSS protection through `htmlspecialchars()`
-- CSRF protection (implement as needed)
+Everything happens client-side
 
 ## 🤝 Contributing
 
@@ -128,7 +102,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- Built with PHP and Bootstrap
 - Inspired by the need for easy Mastodon sharing
 - Thanks to the Mastodon community for feedback and suggestions
 
@@ -142,4 +115,4 @@ If you encounter any issues or have questions:
 
 ---
 
-**Note**: This application is designed to be simple and lightweight. No database is required, and it can be deployed on any standard PHP hosting environment.
+**Note**: This application is designed to be simple and lightweight. No database is required, and it can be tested on any browser.
