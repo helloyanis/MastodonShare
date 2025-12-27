@@ -2,21 +2,20 @@
 
 A simple web application that provides a "share to Mastodon" endpoint. Users can enter their Mastodon instance and are redirected to that instance's sharing page with pre-filled text and URL.
 
-This project powers [https://mastodonshare.com](https://mastodonshare.com)
+This project powers https://mastodonshare.🦊💻.ws
 
 ## 🚀 Features
 
 - **Instance Selection**: Users can select their preferred Mastodon instance
-- **Cookie Memory**: Remembers the chosen instance to avoid repeated selection
-- **Pre-filled Sharing**: Accepts `text`, `url`, and optional `note` parameters
+- **Memory**: Remembers the chosen instance to avoid repeated selection
+- **Easy share link creation**: Create a text directly from the web UI and share the link online!
 - **Direct Redirect**: Redirects users straight to their instance's share page
-- **Clean UI**: Bootstrap-based styling with responsive design
-- **Session Management**: Handles user sessions for seamless experience
+- **Clean UI**: Material-based styling with responsive design
+- **Local only**: No data stored on any server, is cached by your browser at 1st start and only needs JavaScript to work! This means no hosting costs!
+- **Backwards compatible with mastodonshare.com** : Just change the domain name to share with one or the other!
 
 ## 📋 Requirements
 
-- PHP 7.0 or higher
-- Web server (Apache, Nginx, etc.)
 - Modern web browser with JavaScript enabled
 
 ## 🛠️ Installation
@@ -40,12 +39,12 @@ This project powers [https://mastodonshare.com](https://mastodonshare.com)
 
 1. **Direct Sharing**: Visit the site with parameters:
    ```
-   https://yoursite.com/?text=Hello%20Mastodon&url=https://example.com
+   https://yoursite.com/?text=Hello%20Mastodon
    ```
 
 2. **Manual Entry**: Use the web form to enter your content and select your Mastodon instance
 
-3. **Instance Selection**: Choose your preferred Mastodon instance (saved in cookies)
+3. **Instance Selection**: Choose your preferred Mastodon instance (saved in local storage)
 
 ### For Developers
 
@@ -64,27 +63,7 @@ const shareUrl = `https://mastodonshare.com/?text=${encodeURIComponent('Check th
 window.open(shareUrl, '_blank');
 ```
 
-## 🏗️ Project Structure
-
-```
-mastodonshare/
-├── index.php          # Main entry point and router
-├── README.md          # This file
-├── html/              # HTML templates and views
-│   ├── about.php      # About page
-│   ├── create.php     # Share creation form
-│   ├── instance.php   # Instance selection
-│   ├── redirect.php   # Redirect logic
-│   ├── share.php      # Share page
-│   ├── shareform.php  # Share form
-│   └── inc_*.php      # Include files (header, footer, etc.)
-├── m/                 # Core application logic
-│   ├── config.php     # Configuration settings
-│   └── general.php    # Utility functions
-└── s/                 # Static assets (CSS, JS, images)
-```
-
-## 🔒 Security Considerations
+# 🔒 Security consniderations
 
 Everything happens client-side
 
@@ -103,13 +82,13 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🙏 Acknowledgments
 
 - Inspired by the need for easy Mastodon sharing
-- Thanks to the Mastodon community for feedback and suggestions
+- Thanks to the Mastodon community for feedback and suggestions and Alex Barredo for the original idea
 
 ## 📞 Support
 
 If you encounter any issues or have questions:
 
-1. Check the [Issues](https://github.com/yourusername/mastodonshare/issues) page
+1. Check the [Issues](https://github.com/helloyanis/mastodonshare/issues) page
 2. Create a new issue with detailed information
 3. Contact the maintainers
 
